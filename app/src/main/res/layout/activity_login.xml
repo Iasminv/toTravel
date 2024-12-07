@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
+
     <ImageView
         android:id="@+id/planetImage"
         android:layout_width="40dp"
@@ -29,8 +30,12 @@
         android:src="@drawable/planet"
         android:translationX="80dp"
         android:translationY="20dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="149dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.211" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -46,7 +51,8 @@
         android:padding="10dp"
         android:background="#fff"
         android:textColor="#956E6E"
-        android:hintTextColor="#956E6E" />
+        android:hintTextColor="#956E6E"
+    />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -62,7 +68,8 @@
         android:padding="10dp"
         android:background="#fff"
         android:textColor="#956E6E"
-        android:hintTextColor="#956E6E" />
+        android:hintTextColor="#956E6E"
+    />
 
     <Button
         android:id="@+id/buttonSignIn"
@@ -76,7 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
+    />
 
     <TextView
         android:id="@+id/textViewForgotPassword"
@@ -90,5 +98,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/textViewCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Create Account"
+        android:textColor="#956E6E"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSignIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
