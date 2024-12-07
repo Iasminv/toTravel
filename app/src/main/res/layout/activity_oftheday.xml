@@ -6,16 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ededed"
-    tools:context=".MainActivity">
+    tools:context=".CountryDetailActivity">
 
     <!-- Title TextView -->
-
-    <!-- Planet ImageView -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="t Travel"
+        android:text="@string/t_travel"
         android:textAlignment="center"
         android:textColor="#76AA81"
         android:textSize="80sp"
@@ -25,6 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.025" />
 
+    <!-- Planet ImageView -->
     <ImageView
         android:id="@+id/planetImage"
         android:layout_width="40dp"
@@ -37,11 +36,6 @@
         tools:layout_editor_absoluteY="58dp" />
 
     <!-- Search CardView -->
-
-    <!-- Country Information Section -->
-
-    <!-- Bottom Navigation Menu -->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/searchCard"
         android:layout_width="0dp"
@@ -54,6 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <!-- Country Information Section -->
     <LinearLayout
         android:id="@+id/countryInfoContainer"
         android:layout_width="0dp"
@@ -72,7 +67,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:text="ITALY"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -81,64 +75,55 @@
             android:layout_width="100dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/italy_flag" />
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/countryOfficialName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Official Name: Italian Republic" />
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:id="@+id/countryCapital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Capital: Rome" />
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/countryLanguage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Language: Italian" />
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/countryCurrency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Currency: Euro (€)" />
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/countryContinent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Continent: Europe" />
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/countryPopulation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Population: 60.36 million" />
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/countryLandArea"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Land Area: 301,340 km²" />
+            android:layout_marginTop="4dp" />
 
         <TextView
             android:id="@+id/countryDrivingSide"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Driving Side: Right" />
+            android:layout_marginTop="4dp" />
 
         <!-- Map Placeholder -->
         <ImageView
@@ -146,9 +131,59 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
-            android:src="@drawable/map_placeholder" />
+            android:scaleType="centerInside" />
     </LinearLayout>
 
+    <!-- Bottom Navigation Menu -->
     <LinearLayout
         android:id="@+id/bottomMenu"
-        android
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#d3d3d3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:padding="14dp"
+            android:src="@drawable/home"
+            android:contentDescription="Home" />
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:padding="14dp"
+            android:src="@drawable/search"
+            android:contentDescription="Search" />
+
+        <ImageButton
+            android:id="@+id/calendarButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:padding="14dp"
+            android:src="@drawable/calendar"
+            android:contentDescription="Calendar" />
+
+        <ImageButton
+            android:id="@+id/rndmButton"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            android:padding="14dp"
+            android:src="@drawable/dice"
+            android:contentDescription="Dice" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
