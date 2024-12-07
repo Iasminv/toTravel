@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.totravel.database.AppDatabase
@@ -18,8 +17,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var signInButton: Button
-    private lateinit var forgotPasswordTextView: TextView
-    private lateinit var createAccountTextView: TextView
     private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +29,6 @@ class LoginActivity : AppCompatActivity() {
         emailEditText = findViewById(R.id.editTextEmail)
         passwordEditText = findViewById(R.id.editTextPassword)
         signInButton = findViewById(R.id.buttonSignIn)
-        forgotPasswordTextView = findViewById(R.id.textViewForgotPassword)
-        createAccountTextView = findViewById(R.id.textViewCreateAccount)
 
         signInButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -43,20 +38,14 @@ class LoginActivity : AppCompatActivity() {
                 val user = login(email, password)
                 withContext(Dispatchers.Main) {
                     if (user != null) {
-                        // Login successful
+                        // Login successful, navigate to MainActivity
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
                     } else {
                         // Login failed
                     }
                 }
             }
-        }
-
-        forgotPasswordTextView.setOnClickListener {
-            startActivity(Intent(this, ForgotPasswordActivity::class.java))
-        }
-
-        createAccountTextView.setOnClickListener {
-            startActivity(Intent(this, CreateAccountActivity::class.java))
         }
     }
 
