@@ -104,7 +104,7 @@ class CountryDetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.countryCurrency).text = "Currency: ${country.currencies?.values?.joinToString(", ") { currency -> "${currency.name} (${currency.symbol})" } ?: "Not specified"}"
         findViewById<TextView>(R.id.countryContinent).text = "Continent: ${country.continents.joinToString(", ")}"
         findViewById<TextView>(R.id.countryLandArea).text = "Land Area: ${country.area} km²"
-        findViewById<TextView>(R.id.countryDrivingSide).text = "Driving Side: ${country.demonyms.eng.m}"
+        findViewById<TextView>(R.id.countryDrivingSide).text = "Driving Side: ${country.drivingSide ?: "unknown"}" // Handle nullable value
 
         Glide.with(this).load(country.flags.png).into(findViewById(R.id.countryFlag))
 

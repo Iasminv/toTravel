@@ -9,44 +9,30 @@ data class Country(
     val capital: List<String>?,
     val region: String,
     val population: Int,
-    val area: Double,
-    val flags: Flags,
     val languages: Map<String, String>?,
     val currencies: Map<String, Currency>?,
     val continents: List<String>,
+    val area: Double,
+    val demonyms: Demonyms,
+    val flags: Flag,
     val maps: Maps,
-    val demonyms: Demonyms
+    val drivingSide: String? = "unknown" // Allow nullable and provide default value
 ) : Parcelable
 
 @Parcelize
-data class Name(
-    val common: String,
-    val official: String
-) : Parcelable
+data class Name(val common: String, val official: String) : Parcelable
 
 @Parcelize
-data class Flags(
-    val png: String
-) : Parcelable
+data class Currency(val name: String, val symbol: String) : Parcelable
 
 @Parcelize
-data class Currency(
-    val name: String,
-    val symbol: String
-) : Parcelable
+data class Demonyms(val eng: Eng) : Parcelable
 
 @Parcelize
-data class Maps(
-    val googleMaps: String
-) : Parcelable
+data class Eng(val m: String, val f: String) : Parcelable
 
 @Parcelize
-data class Demonyms(
-    val eng: Demonym
-) : Parcelable
+data class Flag(val png: String) : Parcelable
 
 @Parcelize
-data class Demonym(
-    val f: String,
-    val m: String
-) : Parcelable
+data class Maps(val googleMaps: String) : Parcelable
