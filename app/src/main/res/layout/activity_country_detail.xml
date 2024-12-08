@@ -79,6 +79,12 @@
             android:layout_marginTop="4dp" />
 
         <TextView
+            android:id="@+id/countryRegion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp" />
+
+        <TextView
             android:id="@+id/countryLanguage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

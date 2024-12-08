@@ -48,10 +48,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         android:layout_marginTop="30dp"
-        android:padding="10dp"
+        android:padding="14dp"
         android:background="#fff"
         android:textColor="#956E6E"
-        android:hintTextColor="#956E6E"
+        android:textColorHint="#956E6E"
     />
 
     <EditText
@@ -65,10 +65,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         android:layout_marginTop="20dp"
-        android:padding="10dp"
+        android:padding="14dp"
         android:background="#fff"
         android:textColor="#956E6E"
-        android:hintTextColor="#956E6E"
+        android:textColorHint="#956E6E"
     />
 
     <Button

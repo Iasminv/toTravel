@@ -23,7 +23,7 @@ class CountryAdapter(private var countries: List<Country>) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         val country = countries[position]
-        holder.countryName.text = country.name
+        holder.countryName.text = country.name.common // Use the common name
         Glide.with(holder.itemView.context).load(country.flags.png).into(holder.countryFlag)
     }
 

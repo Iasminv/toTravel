@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home) // Ensure this matches your layout file name
+        setContentView(R.layout.activity_home)
 
         // Search functionality
         searchField = findViewById(R.id.searchField)
@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
     private fun searchCountries(query: String) {
         lifecycleScope.launch {
             val countries = withContext(Dispatchers.IO) {
-                RetrofitInstance.api.getAllCountries().filter { it.name.contains(query, true) }
+                RetrofitInstance.api.getAllCountries().filter { it.name.common.contains(query, ignoreCase = true) }
             }
             countryAdapter.updateData(countries)
         }
