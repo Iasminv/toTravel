@@ -28,6 +28,7 @@
         android:id="@+id/planetImage"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:contentDescription="image of Planet Earth"
         android:src="@drawable/planet"
         app:layout_constraintEnd_toEndOf="@id/textView"
         app:layout_constraintHorizontal_bias="0.095"

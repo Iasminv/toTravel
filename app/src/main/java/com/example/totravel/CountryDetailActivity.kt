@@ -47,9 +47,10 @@ class CountryDetailActivity : AppCompatActivity() {
             showRandomCountry()
         }
 
-        // Your existing code for displaying country details
         val country = intent.getParcelableExtra<Country>("country")
-        country?.let { displayCountryDetails(it) }
+        country?.let {
+            displayCountryDetails(it)
+        }
     }
 
     private fun navigateToHome() {
@@ -94,8 +95,6 @@ class CountryDetailActivity : AppCompatActivity() {
     }
 
     private fun displayCountryDetails(country: Country) {
-        // Your existing code to display the details
-        // For example:
         findViewById<TextView>(R.id.countryName).text = country.name.common
         findViewById<TextView>(R.id.countryOfficialName).text = "Official Name: ${country.name.official}"
         findViewById<TextView>(R.id.countryCapital).text = "Capital: ${country.capital?.joinToString(", ") ?: "No capital"}"
@@ -106,8 +105,13 @@ class CountryDetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.countryContinent).text = "Continent: ${country.continents.joinToString(", ")}"
         findViewById<TextView>(R.id.countryLandArea).text = "Land Area: ${country.area} km²"
         findViewById<TextView>(R.id.countryDrivingSide).text = "Driving Side: ${country.demonyms.eng.m}"
+
         Glide.with(this).load(country.flags.png).into(findViewById(R.id.countryFlag))
-        findViewById<ImageView>(R.id.countryMap).setOnClickListener {
+
+        // Set the Google Maps link
+        val mapLinkTextView = findViewById<TextView>(R.id.countryMapLink)
+        mapLinkTextView.text = "View on Google Maps"
+        mapLinkTextView.setOnClickListener {
             val mapIntent = Intent(Intent.ACTION_VIEW, Uri.parse(country.maps.googleMaps))
             startActivity(mapIntent)
         }

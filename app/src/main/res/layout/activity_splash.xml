@@ -6,42 +6,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ededed"
-    tools:context=".MainActivity">
+    tools:context=".SplashActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <!-- Container for title and planet image -->
+    <FrameLayout
+        android:id="@+id/titleContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="t Travel"
-        android:textAlignment="center"
-        android:textColor="#76AA81"
-        android:textSize="80sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461" />
+        android:layout_marginTop="200dp">
 
-    <ImageView
-        android:id="@+id/planetImage"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/planet"
-        android:translationX="80dp"
-        android:translationY="20dp"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="312dp" />
+        <!-- TextView for title -->
 
-    <EditText
+        <!-- ImageView for planet, placed over "o" in "Travel" -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="t Travel"
+            android:textAlignment="center"
+            android:textColor="#76AA81"
+            android:textSize="80sp" />
+
+        <ImageView
+            android:id="@+id/planetImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/planet"
+            android:translationX="20dp"
+            android:translationY="10dp" />
+    </FrameLayout>
+
+    <!-- TextView for subtitle -->
+    <TextView
         android:id="@+id/editTextText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:text="FLY WITH KNOWLEDGE"
+        android:layout_marginTop="40dp"
         android:background="@android:color/transparent"
+        android:text="FLY WITH KNOWLEDGE"
         android:textAlignment="center"
         android:textColor="#956E6E"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="405dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleContainer" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
