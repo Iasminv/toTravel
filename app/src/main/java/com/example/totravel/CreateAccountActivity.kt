@@ -1,6 +1,7 @@
 package com.example.totravel
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -28,7 +29,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
         emailEditText = findViewById(R.id.editTextEmail)
         passwordEditText = findViewById(R.id.editTextPassword)
-        createAccountButton = findViewById(R.id.buttonSignIn)
+        createAccountButton = findViewById(R.id.buttonCreateAccount)
 
         createAccountButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -36,16 +37,34 @@ class CreateAccountActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 lifecycleScope.launch {
-                    val user = User(username = email, password = password)
-                    insertUser(user)
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(this@CreateAccountActivity, "Account Created!", Toast.LENGTH_SHORT).show()
-                        finish() // Finish the activity and return to the previous screen
+                    try {
+                        val userExists = checkUserExists(email)
+                        withContext(Dispatchers.Main) {
+                            if (userExists) {
+                                Toast.makeText(this@CreateAccountActivity, "Email already registered", Toast.LENGTH_SHORT).show()
+                            } else {
+                                val user = User(username = email, password = password)
+                                insertUser(user)
+                                Toast.makeText(this@CreateAccountActivity, "Account Created!", Toast.LENGTH_SHORT).show()
+                                finish()
+                            }
+                        }
+                    } catch (e: Exception) {
+                        Log.e("CreateAccountActivity", "Error creating account", e)
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(this@CreateAccountActivity, "Error creating account", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             } else {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private suspend fun checkUserExists(email: String): Boolean {
+        return withContext(Dispatchers.IO) {
+            db.userDao().getUserByUsername(email) != null
         }
     }
 

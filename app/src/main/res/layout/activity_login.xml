@@ -22,7 +22,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
-
     <ImageView
         android:id="@+id/planetImage"
         android:layout_width="40dp"
@@ -51,8 +50,7 @@
         android:padding="14dp"
         android:background="#fff"
         android:textColor="#956E6E"
-        android:textColorHint="#956E6E"
-    />
+        android:textColorHint="#956E6E" />
 
     <EditText
         android:id="@+id/editTextPassword"
@@ -68,8 +66,7 @@
         android:padding="14dp"
         android:background="#fff"
         android:textColor="#956E6E"
-        android:textColorHint="#956E6E"
-    />
+        android:textColorHint="#956E6E" />
 
     <Button
         android:id="@+id/buttonSignIn"
@@ -83,8 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
-    />
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
 
     <TextView
         android:id="@+id/textViewForgotPassword"

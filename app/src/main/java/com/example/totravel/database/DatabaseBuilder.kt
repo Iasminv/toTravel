@@ -13,7 +13,9 @@ object DatabaseBuilder {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "user-database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration() // Use this to recreate the database
+                    .build()
             }
         }
         return INSTANCE!!

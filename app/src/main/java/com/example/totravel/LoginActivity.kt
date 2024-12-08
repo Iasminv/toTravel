@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.totravel.database.AppDatabase
@@ -17,6 +19,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var signInButton: Button
+    private lateinit var createAccountTextView: TextView
+    private lateinit var forgotPasswordTextView: TextView
     private lateinit var db: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +33,8 @@ class LoginActivity : AppCompatActivity() {
         emailEditText = findViewById(R.id.editTextEmail)
         passwordEditText = findViewById(R.id.editTextPassword)
         signInButton = findViewById(R.id.buttonSignIn)
+        createAccountTextView = findViewById(R.id.textViewCreateAccount)
+        forgotPasswordTextView = findViewById(R.id.textViewForgotPassword)
 
         signInButton.setOnClickListener {
             val email = emailEditText.text.toString()
@@ -42,10 +48,18 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     } else {
-                        // Login failed
+                        Toast.makeText(this@LoginActivity, "Login failed. Please check your credentials.", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
+        }
+
+        createAccountTextView.setOnClickListener {
+            startActivity(Intent(this, CreateAccountActivity::class.java))
+        }
+
+        forgotPasswordTextView.setOnClickListener {
+            startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
     }
 

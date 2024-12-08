@@ -59,8 +59,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     private suspend fun checkUserExists(email: String): Boolean {
         return withContext(Dispatchers.IO) {
-            val user = db.userDao().login(email, "dummyPassword") // Adjust login query to match your email verification logic
-            user != null
+            db.userDao().getUserByUsername(email) != null
         }
     }
 }
