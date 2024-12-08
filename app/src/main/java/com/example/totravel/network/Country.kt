@@ -16,8 +16,11 @@ data class Country(
     val demonyms: Demonyms,
     val flags: Flag,
     val maps: Maps,
-    val drivingSide: String? = "unknown" // Allow nullable and provide default value
+    val car: Car?
 ) : Parcelable
+
+@Parcelize
+data class Car(val side: String?) : Parcelable
 
 @Parcelize
 data class Name(val common: String, val official: String) : Parcelable
@@ -32,7 +35,7 @@ data class Demonyms(val eng: Eng) : Parcelable
 data class Eng(val m: String, val f: String) : Parcelable
 
 @Parcelize
-data class Flag(val png: String) : Parcelable
+data class Flag(val png: String, val alt: String?) : Parcelable
 
 @Parcelize
 data class Maps(val googleMaps: String) : Parcelable
