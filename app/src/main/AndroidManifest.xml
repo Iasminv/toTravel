@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.totravel">
 
+    <!-- Add internet permission here -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -37,11 +40,11 @@
 
         <activity
             android:name=".CreateAccountActivity"
-            android:exported="true" /> <!-- Add this line -->
+            android:exported="true" />
 
         <activity
             android:name=".ForgotPasswordActivity"
-            android:exported="true" /> <!-- Ensure this line is present -->
+            android:exported="true" />
 
     </application>
 </manifest>
